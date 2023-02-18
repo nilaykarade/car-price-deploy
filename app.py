@@ -9,7 +9,7 @@ from flask import  Flask, render_template,request
 import numpy as np
 import pickle
 
-app_obj=Flask(__name__)
+app=Flask(__name__)
 
 #route
 
@@ -17,7 +17,7 @@ app_obj=Flask(__name__)
 def index_page():
     return render_template('index.html')
 
-@app_obj.route('/predict',methods=['POST','GET'])
+@app.route('/predict',methods=['POST','GET'])
 def predict_price():
     kms=float(request.form['km'])
     age=float(request.form['age'])
@@ -48,6 +48,6 @@ def predict_price():
 
 
 if __name__=="__main__":
-    app_obj.run(debug=True)
+    app.run(debug=False)
     
     
